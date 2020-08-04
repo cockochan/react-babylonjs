@@ -17,7 +17,8 @@ const onSceneReady = scene => {
 
   // This attaches the camera to the canvas
   camera.attachControl(canvas, true);
-var bootle = SceneLoader.ImportMesh("",'./botl.babylon')
+var bootle = SceneLoader.ImportMesh("",{botl})
+bootle.position.y = 1;
   // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
   var light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
 
