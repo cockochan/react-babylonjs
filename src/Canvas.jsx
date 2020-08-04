@@ -1,8 +1,8 @@
 import React from 'react';
-import { FreeCamera, Vector3, HemisphericLight, MeshBuilder } from '@babylonjs/core';
+import { FreeCamera, Vector3, HemisphericLight, MeshBuilder,SceneLoader,engine } from '@babylonjs/core';
 import SceneComponent from 'babylonjs-hook' 
 import './App.css';
-
+import botl from './botl.babylon'
 let box;
 
 const onSceneReady = scene => {
@@ -11,12 +11,13 @@ const onSceneReady = scene => {
 
   // This targets the camera to scene origin
   camera.setTarget(Vector3.Zero());
-
+ 
   const canvas = scene.getEngine().getRenderingCanvas();
+  scene.getEngine().resize();
 
   // This attaches the camera to the canvas
   camera.attachControl(canvas, true);
-
+var bootle = SceneLoader.ImportMesh("",'./botl.babylon')
   // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
   var light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
 
@@ -24,7 +25,7 @@ const onSceneReady = scene => {
   light.intensity = 0.7;
 
   // Our built-in 'box' shape.
-  box = MeshBuilder.CreateBox("box", {size: 2}, scene);
+  box = MeshBuilder.CreateSphere("sphere", {size: 5}, scene);
 
   // Move the box upward 1/2 its height
   box.position.y = 1;
@@ -46,7 +47,7 @@ const onRender = scene => {
 }
 
 export default () => (
-    <div>
+    
       <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id='my-canvas' />
-    </div>
+ 
 )
