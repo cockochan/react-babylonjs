@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
   <Canvas />
+  <h1 className="title">texture did not load...life is so hard</h1>
     </div>
   );
 }

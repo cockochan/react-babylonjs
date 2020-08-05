@@ -2,13 +2,22 @@
   text-align: center;
   height:1000px;
 }
-
+.title{
+  position: fixed;
+  width: 500px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px; /* Negative half of height. */
+  margin-left: -250px; /* Negative half of width. */
+  z-index:10;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 #my-canvas{
-  width:100vw;
+  width:80vw;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
